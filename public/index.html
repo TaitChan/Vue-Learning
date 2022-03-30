@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      .html-main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+      }
+      .html-text {
+        margin-left: 8px;
+        color: #909399;
+        font-size: 0.8rem;
+      }
+
+      .html-loading > div {
+        width: 4px;
+        background: green;
+        height: 35px;
+        margin: 4px;
+        border-radius: 2px;
+        animation: line-scale-pulse-out 0.9s 0s infinite
+          cubic-bezier(0.85, 0.25, 0.37, 0.85);
+        display: inline-block;
+      }
+      .html-loading > div:first-child,
+      .html-loading > div:last-child {
+        animation-delay: 0.4s;
+      }
+      .html-loading > div:nth-child(2n) {
+        animation-delay: 0.2s;
+      }
+      .html-loading > div:nth-child(1) {
+        background: #efb59c;
+      }
+      .html-loading > div:nth-child(2) {
+        background: #e27982;
+      }
+      .html-loading > div:nth-child(3) {
+        background: #b47181;
+      }
+      .html-loading > div:nth-child(4) {
+        background: #6c5b7b;
+      }
+      .html-loading > div:nth-child(5) {
+        background: #355c7d;
+      }
+      @keyframes line-scale-pulse-out {
+        0% {
+          transform: scaleY(1);
+        }
+        50% {
+          transform: scaleY(0.4);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to continue.
+      </strong>
+    </noscript>
+    <div id="app">
+      <div class="html-main">
+        <div class="html-loading">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="html-text">Loading...</div>
+      </div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

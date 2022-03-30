@@ -1,0 +1,42 @@
+@forward '~element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': $primary,
+    ),
+    'success': (
+      'base': $success,
+    ),
+    'warning': (
+      'base': $warning,
+    ),
+    'danger': (
+      'base': $danger,
+    ),
+    'error': (
+      'base': $danger,
+    ),
+    'info': (
+      'base': $info,
+    ),
+  ),
+  $header: (
+    'padding': 0,
+  )
+);
+@use '~element-plus/theme-chalk/src/index.scss' as *;
+
+.el-sub-menu .svg-icon,
+.el-menu-item [class^='svg-icon'] {
+  width: 24px;
+  margin-right: 5px;
+  font-size: 18px;
+}
+.el-sub-menu .el-sub-menu,
+.el-sub-menu > ul > li > .svg-icon {
+  margin-left: 5px;
+}
+.el-dropdown-menu {
+  .svg-icon {
+    margin-right: 5px;
+  }
+}

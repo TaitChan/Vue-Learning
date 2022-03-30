@@ -1,0 +1,40 @@
+$ct-namespace: 'ct';
+$primary: #409eff;
+$danger: #f56c6c;
+$warning: #e6a23c;
+$success: #67c23a;
+$info: #909399;
+
+$padding-lg: 15px;
+$padding-sm: 10px;
+
+//侧边菜单栏
+$layout-aside-min-width: 64px; //最小宽度
+$layout-aside-width: 200px; //宽度
+$layout-aside-bg: #35363a; //背景色
+$layout-aside-open-bg: #202124; //展开区背景色
+$layout-aside-color: #f4f4f5; //文字颜色
+$layout-aside-active-color: $primary; //选中时文字颜色
+//$layout-tag-bg: $primary;
+
+//上方导航栏(header+快捷导航)
+$layout-header-height: 50px; //高度
+$layout-tags-height: 30px; //高度
+$layout-tag-bg: #65b687; //背景色
+
+//进度条颜色
+$nprogress-bar-bg: $primary;
+
+//右侧配置栏
+$layout-config-height: 50px; //图标大小
+
+:export {
+  layoutAsideBg: $layout-aside-bg;
+  layoutAsideOpenBg: $layout-aside-open-bg;
+  layoutAsideColor: $layout-aside-color;
+  layoutAsideActiveColor: $layout-aside-active-color;
+  layoutAsideWidth: $layout-aside-width;
+  layoutAsideMinWidth: $layout-aside-min-width;
+  layoutHeaderHeight: $layout-header-height;
+  layoutTagsHeight: $layout-tags-height;
+}
