@@ -5,6 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/Vue-Learning/' : '/',
   // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码
   // 如果你想要在生产构建时禁用 eslint-loader，你可以用如下配置：
   lintOnSave: process.env.NODE_ENV !== 'production',
