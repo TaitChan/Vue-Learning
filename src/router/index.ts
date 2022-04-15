@@ -38,6 +38,45 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: '/list',
+    component: Layout,
+    meta: { title: '列表页', icon: 'list' },
+    children: [
+      {
+        path: '/list/table',
+        component: () => import('@/views/list/table/index.vue'),
+        meta: { title: '查询表格' },
+      },
+      {
+        path: '/list/card',
+        component: () => import('@/views/list/card/index.vue'),
+        meta: { title: '卡片列表' },
+      },
+    ],
+  },
+  {
+    path: '/error-page',
+    component: Layout,
+    meta: { title: '异常页', icon: 'warning' },
+    children: [
+      {
+        path: '/error-page/403',
+        component: () => import('@/views/error-page/403.vue'),
+        meta: { title: '403' },
+      },
+      {
+        path: '/error-page/404',
+        component: () => import('@/views/error-page/404.vue'),
+        meta: { title: '404' },
+      },
+      {
+        path: '/error-page/500',
+        component: () => import('@/views/error-page/500.vue'),
+        meta: { title: '500' },
+      },
+    ],
+  },
+  {
     path: '/account',
     component: Layout,
     meta: { title: '个人中心', icon: 'user' },
@@ -63,28 +102,6 @@ export const asyncRoutes = [
         path: '/account/settings',
         component: () => import('@/views/Test.vue'),
         meta: { title: '用户设置', icon: 'setting' },
-      },
-    ],
-  },
-  {
-    path: '/error-page',
-    component: Layout,
-    meta: { title: '异常页', icon: 'warning' },
-    children: [
-      {
-        path: '/error-page/403',
-        component: () => import('@/views/error-page/403.vue'),
-        meta: { title: '403' },
-      },
-      {
-        path: '/error-page/404',
-        component: () => import('@/views/error-page/404.vue'),
-        meta: { title: '404' },
-      },
-      {
-        path: '/error-page/500',
-        component: () => import('@/views/error-page/500.vue'),
-        meta: { title: '500' },
       },
     ],
   },

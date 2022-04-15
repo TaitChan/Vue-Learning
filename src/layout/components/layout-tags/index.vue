@@ -71,7 +71,7 @@
 <style lang="scss" scoped>
   .layout-tags {
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%), 0 0 3px 0 rgb(0 0 0 / 4%);
-    border-bottom: 1px solid #d8dce5;
+    border-bottom: 1px solid var(--el-border-color);
     height: $layout-tags-height;
     background: white;
     &__main {
@@ -79,7 +79,7 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 0 $padding-lg;
+      padding: 0 $space-df;
     }
     &__tag {
       height: calc(100% - 6px);
@@ -87,9 +87,9 @@
       justify-content: center;
       align-items: center;
       background: white;
-      border: 1px solid var(--el-border-color-darker);
+      border: 1px solid var(--el-border-color-dark);
       font-size: 12px;
-      padding: 0 $padding-sm;
+      padding: 0 $space-sm;
       text-decoration: none;
       margin-left: 5px;
       color: var(--el-text-color-regular);

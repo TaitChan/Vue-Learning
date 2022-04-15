@@ -40,3 +40,12 @@
     margin-right: 5px;
   }
 }
+.el-drawer__header{
+  border-bottom: 1px solid var(--el-border-color-light);
+  margin-bottom: 0;
+  padding-bottom: $space-lg;
+}
+.el-drawer__footer{
+  padding: $space-df;
+  background: var(--el-border-color-light);
+}

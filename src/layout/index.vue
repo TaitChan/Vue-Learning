@@ -4,7 +4,7 @@
       <layout-aside></layout-aside>
       <el-container direction="vertical">
         <layout-header></layout-header>
-        <el-main>
+        <el-main class="layout-main">
           <router-view v-slot="{ Component }">
             <transition mode="out-in" name="component-fade">
               <keep-alive :include="cachedViews">
@@ -45,8 +45,8 @@
     height: 100vh;
     background: white;
   }
-  .el-main {
-    padding: 0;
+  .layout-main {
+    padding: $space-df $space-lg;
     background: #eff1f4;
   }
   .component-fade-enter-active,

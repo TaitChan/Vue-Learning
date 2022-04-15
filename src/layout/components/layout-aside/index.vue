@@ -116,7 +116,7 @@
 
 <style lang="scss">
   .layout-aside__popper {
-    border-radius: $padding-lg;
+    border-radius: $space-df;
     overflow: hidden;
     border: none !important;
     ul {
@@ -132,7 +132,8 @@
     &__title {
       height: $layout-header-height;
       background: $layout-aside-bg;
-      color: white;
+      color: $layout-aside-color;
+      font-size: 20px;
       display: flex;
       justify-content: center;
       align-items: center;

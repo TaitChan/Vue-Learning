@@ -26,3 +26,8 @@ html {
 #nprogress .bar {
   background: $nprogress-bar-bg !important;
 }
+
+.search-container {
+  max-width: 270px;
+  margin-bottom: $space-df;
+}

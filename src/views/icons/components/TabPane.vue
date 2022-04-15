@@ -1,8 +1,8 @@
 <template>
-  <empty-content :empty-data="filterIcons">
+  <empty-content :empty-data="filterIconList">
     <div class="grid">
       <div
-        v-for="item of filterIcons"
+        v-for="item of filterIconList"
         :key="item"
         @click="handleClipboard(generateIconCode(item), $event)"
       >
@@ -47,7 +47,7 @@
       }
     },
     computed: {
-      filterIcons() {
+      filterIconList() {
         if (this.name === 'alone') {
           return svgIcons.filter((item) => {
             return item.includes(this.search)
@@ -75,7 +75,7 @@
     position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-    grid-gap: $padding-sm;
+    grid-gap: $space-sm;
     overflow: hidden;
     .icon-item {
       text-align: center;
@@ -86,7 +86,7 @@
       border-radius: var(--el-border-radius-base);
       position: relative;
       overflow: hidden;
-      padding: $padding-lg 0 $padding-sm 0;
+      padding: $space-df 0 $space-sm 0;
       min-height: 85px;
       display: flex;
       justify-content: space-between;
@@ -96,7 +96,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        margin: 0 $padding-sm;
+        margin: 0 $space-sm;
       }
       i {
         pointer-events: none;
@@ -116,7 +116,7 @@
         content: '点击复制';
         background: $primary;
         color: white;
-        font-size: 0.8rem;
+        font-size: 14px;
         width: 100%;
         position: absolute;
         bottom: 0;

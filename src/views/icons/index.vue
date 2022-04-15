@@ -1,12 +1,7 @@
 <template>
-  <div class="icons-container">
-    <div class="icons-container__top">
-      <el-input
-        v-model="search"
-        placeholder="请输入图标名称"
-        clearable
-        @clear="search = ''"
-      >
+  <ct-card title="图标">
+    <div class="search-container">
+      <el-input v-model="search" placeholder="请输入图标名称" clearable>
         <template #append>
           <el-button>
             <svg-icon icon-class="search"></svg-icon>
@@ -24,7 +19,7 @@
         <tab-pane :search="search" :name="tabName"></tab-pane>
       </el-tab-pane>
     </el-tabs>
-  </div>
+  </ct-card>
 </template>
 
 <script>
@@ -69,17 +64,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .icons-container {
-    margin: $padding-lg;
-    padding: $padding-lg;
-    overflow: hidden;
-    background: white;
-    &__top {
-      max-width: 300px;
-      margin-bottom: $padding-sm;
-    }
-    .el-tabs--border-card {
-      box-shadow: none;
-    }
+  .el-tabs--border-card {
+    box-shadow: none;
   }
 </style>

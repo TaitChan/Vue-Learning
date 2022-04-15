@@ -75,7 +75,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: $padding-lg;
+    padding: $space-df;
     .layout-user {
       display: flex;
       justify-content: space-between;
@@ -88,7 +88,7 @@
       .svg-icon {
         transition: 0.3s;
         margin-left: 3px;
-        font-size: 0.8rem;
+        font-size: 14px;
         &.is-open {
           transform: rotateZ(180deg);
         }
