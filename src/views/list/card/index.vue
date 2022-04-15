@@ -9,6 +9,11 @@
             </el-button>
           </template>
         </el-input>
+        <el-radio-group v-model="confirmType">
+          <el-radio label="none">None</el-radio>
+          <el-radio label="message-box">Message Box</el-radio>
+          <el-radio label="pop-confirm">Pop Confirm</el-radio>
+        </el-radio-group>
       </div>
       <div class="grid">
         <ct-card
@@ -37,6 +42,7 @@
           </div>
           <template #footer>
             <el-switch
+              v-if="confirmType === 'none'"
               v-model="item.status"
               :active-value="1"
               :inactive-value="0"
@@ -44,6 +50,35 @@
               @change="handleSwitch(item)"
               :loading="item.loading"
             />
+            <el-switch
+              v-if="confirmType === 'message-box'"
+              v-model="item.status"
+              :active-value="1"
+              :inactive-value="0"
+              @click.stop=""
+              @change="handleSwitchForMessageBox(item)"
+              :loading="item.loading"
+            />
+            <el-popconfirm
+              v-if="confirmType === 'pop-confirm'"
+              confirm-button-text="确定"
+              cancel-button-text="取消"
+              :title="`确定${item.status === 1 ? '停止' : '启用'}此卡片?`"
+              @confirm="handleSwitchForPopConfirm(item)"
+              @cancel="activeItem = {}"
+              :disabled="item.loading"
+            >
+              <template #reference>
+                <el-switch
+                  v-model="item.status"
+                  :active-value="1"
+                  :inactive-value="0"
+                  @click.stop=""
+                  @change="rollSwitch(item)"
+                  :loading="item.loading"
+                />
+              </template>
+            </el-popconfirm>
           </template>
         </ct-card>
       </div>
@@ -80,7 +115,12 @@
     components: {},
     data() {
       return {
-        value1: true,
+        drawer: {
+          title: '卡片详情',
+          visible: false,
+        },
+        activeItem: {},
+        confirmType: 'none',
         list: [
           {
             name: 'AddRequestHeader',
@@ -174,11 +214,6 @@
               'The RedirectTo GatewayFilter factory takes two parameters, status and url. The status parameter should be a 300 series redirect HTTP code, such as 301. The url parameter should be a valid URL. This is the value of the Location header. For relative redirects, you should use uri: no://op as the uri of your route definition.',
           },
         ],
-        drawer: {
-          title: '卡片详情',
-          visible: false,
-        },
-        activeItem: {},
       }
     },
     computed: {
@@ -211,20 +246,42 @@
       },
     },
     methods: {
-      handleSwitch(item) {
-        item.loading = true
+      rollSwitch(item) {
         item.status = item.status === 1 ? 0 : 1
+        this.activeItem = item
+      },
+      handleSwitchForPopConfirm(item) {
+        item.loading = true
         setTimeout(() => {
-          const randomBoolean = Math.random() >= 0.4
-          let text = item.status === 1 ? '停止' : '启用'
+          const randomBoolean = Math.random() >= 0.5
           if (randomBoolean) {
             item.status = item.status === 1 ? 0 : 1
-            this.$message.success(`${text}${item.name}成功`)
+            this.$message.success('操作成功')
           } else {
-            this.$message.warning(`${text}${item.name}失败`)
+            this.$message.error('操作失败')
           }
           item.loading = false
+          this.activeItem = {}
         }, 500)
+      },
+      handleSwitch(item) {
+        this.rollSwitch(item)
+        this.handleSwitchForPopConfirm(item)
+      },
+      handleSwitchForMessageBox(item) {
+        this.rollSwitch(item)
+        let text = item.status === 1 ? '停止' : '启用'
+        this.$confirm(`确定${text}此卡片?`, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+        })
+          .then(async () => {
+            this.handleSwitchForPopConfirm(item)
+          })
+          .catch(() => {
+            this.activeItem = {}
+          })
       },
       openDrawer(item) {
         this.name = item.name

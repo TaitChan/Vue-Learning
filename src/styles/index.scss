@@ -28,6 +28,11 @@ html {
 }
 
 .search-container {
-  max-width: 270px;
   margin-bottom: $space-df;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .el-input{
+    max-width: 270px;
+  }
 }

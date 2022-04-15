@@ -35,6 +35,10 @@ $nprogress-bar-bg: $primary;
 $layout-config-height: 50px; //图标大小
 
 :export {
+  primary:$primary;
+  danger:$danger;
+  success:$success;
+  warning:$warning;
   layoutAsideBg: $layout-aside-bg;
   layoutAsideOpenBg: $layout-aside-open-bg;
   layoutAsideColor: $layout-aside-color;
