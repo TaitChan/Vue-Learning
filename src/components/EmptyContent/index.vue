@@ -10,6 +10,7 @@
 <script>
   import svg_emptyContent from './empty-content.svg'
   export default {
+    name: 'EmptyContent',
     props: {
       emptyData: {
         type: Array,
