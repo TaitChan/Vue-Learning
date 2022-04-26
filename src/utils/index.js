@@ -323,7 +323,6 @@ export const setWatermark = (function () {
     rotate = '30',
     zIndex = 1000
   ) {
-    let args = arguments[0]
     let canvas = document.createElement('canvas')
 
     canvas.setAttribute('width', width)

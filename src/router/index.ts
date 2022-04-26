@@ -155,9 +155,21 @@ export const asyncRoutes = [
     component: Layout,
     children: [
       {
+        path: '/three',
+        component: () => import('@/views/three/index.vue'),
+        meta: { title: 'three.js实践', icon: 'rocket' },
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
         path: '/magic',
         component: () => import('@/views/Magic.vue'),
-        meta: { title: '魔法', icon: 'rocket', hidden: true },
+        meta: { title: '魔法', icon: 'rocket' },
       },
     ],
   },
