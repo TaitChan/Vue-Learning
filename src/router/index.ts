@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import {
+  createRouter,
+  createWebHistory,
+  createWebHashHistory,
+  RouteRecordRaw,
+} from 'vue-router'
 const Layout = () => import('@/layout/index.vue') //基础布局
 const Empty = () => import('@/layout/layout-empty.vue') //空布局
 
@@ -170,7 +175,8 @@ export const asyncRoutes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [...routes, ...asyncRoutes],
   scrollBehavior(to, from, savedPosition) {
     // return 期望滚动到哪个的位置
