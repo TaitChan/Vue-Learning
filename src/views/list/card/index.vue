@@ -2,7 +2,7 @@
   <div>
     <ct-card title="卡片列表">
       <div class="search-container">
-        <el-input v-model="search" placeholder="请输入图标名称" clearable>
+        <el-input v-model="search" placeholder="请输入卡片名称" clearable>
           <template #append>
             <el-button>
               <svg-icon icon-class="search"></svg-icon>

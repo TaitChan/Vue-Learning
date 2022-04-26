@@ -7,6 +7,7 @@ import router from './router' //vue-router
 import store from './store' //vuex:跨组件状态存储;localstorage:持久化状态，跨页面状态存储
 import './icons/index.js' //批量导入svg图标
 import './router/main' //路由跳转拦截
+import 'leaflet/dist/leaflet.css'
 import components from '@/components/index.js'
 
 const app = createApp(App)

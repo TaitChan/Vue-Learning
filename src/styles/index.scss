@@ -33,6 +33,7 @@ html {
   justify-content: space-between;
   align-items: center;
   .el-input{
+    min-width: 160px;
     max-width: 270px;
   }
 }

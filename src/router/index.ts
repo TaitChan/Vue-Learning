@@ -139,6 +139,17 @@ export const asyncRoutes = [
     component: Layout,
     children: [
       {
+        path: '/map',
+        component: () => import('@/views/map/index.vue'),
+        meta: { title: 'leaflet地图', icon: 'rocket' },
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
         path: '/magic',
         component: () => import('@/views/Magic.vue'),
         meta: { title: '魔法', icon: 'rocket', hidden: true },
