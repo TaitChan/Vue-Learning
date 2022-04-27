@@ -28,6 +28,8 @@
     data() {
       return {
         from: 'https://zhuanlan.zhihu.com/p/333615381',
+        publicPath:
+          process.env.NODE_ENV === 'production' ? '/Vue-Learning/' : '/',
       }
     },
     mounted() {
@@ -95,13 +97,13 @@
         scene.add(group)
         //加载模型和纹理-萨勒芬妮
         const gltfLoader = new GLTFLoader()
-        gltfLoader.load('/seraphine/scene.gltf', (gltf) => {
+        gltfLoader.load(`${this.publicPath}seraphine/scene.gltf`, (gltf) => {
           const model = gltf.scene
           //遍历模型每部分
           model.traverse((o) => {
             //将图片作为纹理加载
             let explosionTexture = new THREE.TextureLoader().load(
-              '/seraphine/textures/Mat_cwfyfr1_userboy17.bmp_diffuse.png'
+              `${this.publicPath}seraphine/textures/Mat_cwfyfr1_userboy17.bmp_diffuse.png`
             )
             //调整纹理图的方向
             explosionTexture.flipY = false
